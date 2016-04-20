@@ -24,7 +24,7 @@ class Book extends CI_Model{
 	}
 	public function show_by_id($book_id)
 	{
-		return $this->db->query("SELECT * FROM books WHERE id = ?", array($book_id))->row_array();
+		return $this->db->query("SELECT * FROM books WHERE id = ?", array(htmlspecialchars($book_id)))->row_array();
 	}
 	public function show_authors()
 	{
