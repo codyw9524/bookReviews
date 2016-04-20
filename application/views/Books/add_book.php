@@ -30,6 +30,10 @@
 		#add_review_btn{
 			float: right;
 		}
+		textarea{
+			max-width: 100%;
+			max-height: 114px;
+		}
 	</style>
 </head>
 <body>
