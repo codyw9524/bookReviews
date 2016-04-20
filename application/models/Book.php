@@ -11,10 +11,10 @@ class Book extends CI_Model{
 		}
 		else
 		{
-			$author = $post['author_from_list'];
+			$author = htmlspecialchars($post['author_from_list']);
 		}
 		$query = "INSERT INTO books (title, author, created_at, updated_at) VALUES (?, ?, NOW(), NOW())";
-		$values = array($post['title'], $author);
+		$values = array(htmlspecialchars($post['title']), $author);
 		$this->db->query($query, $values);
 	}
 

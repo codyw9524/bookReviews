@@ -6,7 +6,7 @@ class User extends CI_Model{
 	public function create($post)
 	{
 		$query = "INSERT INTO users (name, alias, email, password, created_at, updated_at) VALUES (?, ?, ?, ?, NOW(), NOW())";
-		$values = array($post['name'], $post['alias'], $post['email'], password_hash($post['password'], PASSWORD_DEFAULT));
+		$values = array(htmlspecialchars($post['name']), htmlspecialchars($post['alias']), $post['email'], password_hash($post['password'], PASSWORD_DEFAULT));
 		$this->db->query($query, $values);
 	}
 	public function show($user_id)

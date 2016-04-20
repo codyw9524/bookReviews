@@ -24,7 +24,7 @@ class Review extends CI_Model{
 	public function create($post, $book_id)
 	{
 		$query = "INSERT INTO reviews (content, stars, book_id, user_id, created_at, updated_at) VALUES (?, ?, ?, ?, NOW(), NOW())";
-		$values = array(htmlspecialchars($post['review']), $post['rating'], $book_id, $this->session->userdata('user_id'));
+		$values = array(htmlspecialchars($post['review']), htmlspecialchars($post['rating']), $book_id, $this->session->userdata('user_id'));
 		$this->db->query($query, $values);
 	}
 	public function get_reviews_by_book_id($book_id)
